@@ -43,6 +43,7 @@ namespace potential
 
         public enum REPORT_RESPONSE : byte
         {
+            RAZER_CMD_NEW           = 0x00,
             RAZER_CMD_BUSY          = 0x01,
             RAZER_CMD_SUCCESSFUL    = 0x02,
             RAZER_CMD_FAILURE       = 0x03,
@@ -71,7 +72,7 @@ namespace potential
 
         public struct RazerReport
         {
-            public byte status;
+            public REPORT_RESPONSE status;
             
             /* transaction_id_union */
             public byte transaction_id;

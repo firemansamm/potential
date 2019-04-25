@@ -36,21 +36,10 @@ namespace potential
 
             if (response.remaining_packets != request_report.remaining_packets ||
                 response.command_class != request_report.command_class ||
-                response.command_id != request_report.command_id)
-            {
-                Error("response doesn't match request");
-            } else if (response.status == (byte)REPORT_RESPONSE.RAZER_CMD_FAILURE)
-            {
-                Error("command failed");
-            }
-            else if (response.status == (byte)REPORT_RESPONSE.RAZER_CMD_NOT_SUPPORTED)
-            {
-                Error("command not supported");
-            }
-            else if (response.status == (byte)REPORT_RESPONSE.RAZER_CMD_TIMEOUT)
-            {
-                Error("command timed out");
-            }
+                response.command_id != request_report.command_id) Error("response doesn't match request");
+            else if (response.status == REPORT_RESPONSE.RAZER_CMD_FAILURE) Error("command failed");
+            else if (response.status == REPORT_RESPONSE.RAZER_CMD_NOT_SUPPORTED) Error("command not supported");
+            else if (response.status == REPORT_RESPONSE.RAZER_CMD_TIMEOUT) Error("command timed out");
 
             return response;
         }
