@@ -5,6 +5,7 @@ using HidSharp;
 using static potential.RazerDeviceHelper;
 using static potential.RazerKeyboard;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace potential
 {
@@ -54,6 +55,8 @@ namespace potential
             Log("all done - have a nice day!");*/
             Application.EnableVisualStyles();
             Application.Run(new Interface());
+            //List<HidDevice2> devices = HidDevice2.EnumerateDevices(0x1532, 0x023A);
+            //Console.ReadLine();
         }
     }
 }
